@@ -66,14 +66,14 @@ function App() {
 
   // Add your photo URLs here!
   const photos = [
-    '/src/WhatsApp Image 2026-02-04 at 11.55.56 (1).jpeg',
-    '/src/WhatsApp Image 2026-02-04 at 11.55.56 (2).jpeg',
-    '/src/WhatsApp Image 2026-02-04 at 11.55.56 (3).jpeg',
-    '/src/WhatsApp Image 2026-02-04 at 11.55.56.jpeg',
+    '/vl/WhatsApp Image 2026-02-04 at 11.55.56 (1).jpeg',
+    '/vl/WhatsApp Image 2026-02-04 at 11.55.56 (2).jpeg',
+    '/vl/WhatsApp Image 2026-02-04 at 11.55.56 (3).jpeg',
+    '/vl/WhatsApp Image 2026-02-04 at 11.55.56.jpeg',
   ];
 
   // Video URL (optional)
-  const videoUrl = '/src/WhatsApp Video 2026-02-04 at 11.55.58.mp4';
+  const videoUrl = '/vl/WhatsApp Video 2026-02-04 at 11.55.58.mp4';
 
   useEffect(() => {
     setHearts(Array.from({ length: 25 }, (_, i) => i));
