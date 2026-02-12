@@ -62,18 +62,8 @@ function App() {
   const [sparkles, setSparkles] = useState<number[]>([]);
   const [yesButtonScale, setYesButtonScale] = useState(1);
   const [shakeNo, setShakeNo] = useState(false);
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
-  // Add your photo URLs here!
-  const photos = [
-    '/vl/WhatsApp Image 2026-02-04 at 11.55.56 (1).jpeg',
-    '/vl/WhatsApp Image 2026-02-04 at 11.55.56 (2).jpeg',
-    '/vl/WhatsApp Image 2026-02-04 at 11.55.56 (3).jpeg',
-    '/vl/WhatsApp Image 2026-02-04 at 11.55.56.jpeg',
-  ];
 
-  // Video URL (optional)
-  const videoUrl = '/vl/WhatsApp Video 2026-02-04 at 11.55.58.mp4';
 
   useEffect(() => {
     setHearts(Array.from({ length: 25 }, (_, i) => i));
@@ -87,15 +77,7 @@ function App() {
   }, [answered]);
 
   // Slideshow effect for photos
-  useEffect(() => {
-    if (photos.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
-      }, 5000); // Change photo every 5 seconds
-      return () => clearInterval(interval);
-    }
-  }, [photos.length]);
-
+ 
   const handleYesClick = () => {
     setAnswered(true);
   };
@@ -280,37 +262,9 @@ function App() {
       {/* Background with Photos/Video - Rose Overlay */}
       <div className="absolute inset-0">
         {/* Photo Slideshow Background (only if not using video) */}
-        {!answered && photos.length > 0 && (
-          <div className="absolute inset-0">
-            {photos.map((photo, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-opacity duration-1000 ${
-                  index === currentPhotoIndex ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <img
-                  src={photo}
-                  alt={`Background ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        )}
+ 
 
-        {/* Video Background (shows after "Yes" is clicked) */}
-        {answered && videoUrl && (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src={videoUrl} type="video/mp4" />
-          </video>
-        )}
+
 
         {/* Rose/Pink Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-rose-500/60 via-pink-500/50 to-red-500/60 backdrop-blur-sm"></div>
@@ -359,7 +313,7 @@ function App() {
           </div>
 
           <h2 className="text-xl sm:text-2xl md:text-3xl text-white font-semibold mb-3 sm:mb-4 md:mb-6 tracking-wide animate-slideDown drop-shadow-lg" style={{ animationDelay: '0.1s' }}>
-            Dear Ferdaousse,
+            Dear Zineb,
           </h2>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-5 md:mb-6 leading-tight animate-slideDown drop-shadow-2xl" style={{ animationDelay: '0.2s', textShadow: '0 0 40px rgba(255,255,255,0.5)' }}>
@@ -429,7 +383,7 @@ function App() {
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6 animate-slideDown" style={{ animationDelay: '0.3s' }}>
             <Star className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 fill-yellow-400 animate-pulse" />
             <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-lg">
-              Ferdaousse
+              Zineb
             </p>
             <Star className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 fill-yellow-400 animate-pulse" style={{ animationDelay: '0.2s' }} />
           </div>
